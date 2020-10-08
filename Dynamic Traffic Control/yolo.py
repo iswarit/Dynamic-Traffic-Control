@@ -1,7 +1,3 @@
-# USAGE
-# python yolo.py --image images/baggage_claim.jpg --yolo yolo-coco
-
-# import the necessary packages
 import numpy as np
 import argparse
 import time
@@ -76,9 +72,6 @@ for output in layerOutputs:
 		scores = detection[5:]
 		classID = np.argmax(scores)
 		confidence = scores[classID]
-
-		# filter out weak predictions by ensuring the detected
-		# probability is greater than the minimum probability
 		if confidence > args["confidence"]:
 			# scale the bounding box coordinates back relative to the
 			# size of the image, keeping in mind that YOLO actually
